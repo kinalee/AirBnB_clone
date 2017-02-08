@@ -7,14 +7,14 @@ import uuid
 class BaseModel():
 
     def __init__(self):
-        self.created_at = datetime.datetime.today().isoformat()
-        self.id = uuid.UUID
-        self.__dict__.update({'__class__': self.__class__.__name__})
+        self.created_at = datetime.datetime.now().isoformat()
+        self.id = uuid.uuid4()
 
     def save(self):
-        self.updated_at = datetime.datetime.today().isoformat()
+        self.updated_at = datetime.datetime.now().isoformat()
 
     def to_json(self):
+        self.__dict__.update({'__class__': self.__class__.__name__})
         return self.__dict__
 
     def __str__(self):
