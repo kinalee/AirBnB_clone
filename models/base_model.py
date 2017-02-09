@@ -1,24 +1,29 @@
 #!/usr/bin/python3
-import datetime
+from datetime import datetime
 import uuid
-from models.__init__ import storage
 
 
 class BaseModel():
 
     def __init__(self, *args, **kwargs):
-        if args and type(args[0]) is dict:
-            self.created_at = datetime.datetime.strptime(args[0]['created_at'], '%Y-%m-%d %H:%H:S.%f')
-            if args[0][updated_at]:
-                self.updated_at = datetime.datetime.strptime(args[0]['updated_at'], '%Y-%m-%d %H:%H:S.%f')
-            self.__dict__ = args[0]
-        else:
-            self.created_at = datetime.datetime.now()
+        time = '%Y-%m-%d %H:%M:%S.%f'
+        dict_found = 0
+        for item in args:
+            if type(item) is dict:
+                dict_found = 1
+                self.__dict__ = item
+                self.created_at = datetime.strptime(item['created_at'], time)
+                self.updated_at = datetime.strptime(item['updated_at'], time)
+        if not dict_found:
+            self.created_at = datetime.now()
             self.id = str(uuid.uuid4())
+            from models.__init__ import storage
             storage.new(self)
 
+
     def save(self):
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
+        from models.__init__ import storage
         storage.save()
 
     def to_json(self):

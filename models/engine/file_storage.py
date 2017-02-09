@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os.path
 import json
-import datetime
+from datetime import datetime
 
 
 class FileStorage():
@@ -21,8 +21,10 @@ class FileStorage():
                 serial.update({key: FileStorage.__objects[key].to_json()})
             else:
                 serial.update({key: FileStorage.__objects[key]})
-                serial[key].update({'created_at': str(serial[key]['created_at'])})
-                serial[key].update({'updated_at': str(serial[key]['updated_at'])})
+                my_dict = serial[key]
+                my_dict.update({'created_at': str(my_dict['created_at'])})
+                my_dict.update({'updated_at': str(my_dict['updated_at'])})
+                serial[key] = my_dict
         with open(FileStorage.__file_path, 'w') as json_file:
             json.dump(serial, json_file)
 
@@ -30,6 +32,7 @@ class FileStorage():
         if os.path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r') as json_file:
                 FileStorage.__objects = json.load(json_file)
+            from models.base_model import BaseModel
             for key in FileStorage.__objects.keys():
-                FileStorage.__objects[key].update({'created_at': datetime.datetime.strptime(FileStorage.__objects[key]['created_at'], '%Y-%m-%d %H:%M:%S.%f')})
-                FileStorage.__objects[key].update({'updated_at': datetime.datetime.strptime(FileStorage.__objects[key]['updated_at'], '%Y-%m-%d %H:%M:%S.%f')})
+                new_model = BaseModel(FileStorage.__objects[key])
+                FileStorage.__objects.update({key: new_model})
