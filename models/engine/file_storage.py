@@ -33,7 +33,15 @@ class FileStorage():
             with open(FileStorage.__file_path, 'r') as json_file:
                 FileStorage.__objects = json.load(json_file)
             from models.base_model import BaseModel
-            class_dict = {'BaseModel': BaseModel}
+            from models.user import User
+            from models.amenity import Amenity
+            from models.review import Review
+            from models.city import City
+            from models.place import Place
+            from models.state import State
+            class_dict = {'BaseModel': BaseModel, 'User': User,
+                          'Amenity': Amenity, 'Review': Review, 'City': City,
+                          'Place': Place, 'State': State}
             for key in FileStorage.__objects.keys():
                 class_name = FileStorage.__objects[key]['__class__']
                 new_model = class_dict[class_name](FileStorage.__objects[key])
