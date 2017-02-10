@@ -16,12 +16,20 @@ ec6c5aa4-ebd3-11e6-864c-08002745538c
 - <b>all</b>: Displays all instances that currently exist. Optional class name will display all instances of a given class. Usage: all [<class name>].
 ```
 (hbnb) all User
-[User] (ec6c5aa4-ebd3-11e6-864c-08002745538c) {'id': 'ec6c5aa4-ebd3-11e6-864c-08002745538c', 'email': 'airbnb@holbertonshool.com', '__class__': 'User', 'last_name': 'Holberton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853163), 'first_name': 'Betty', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853222), 'password': 'root'}
+[User] (ec6c5aa4-ebd3-11e6-864c-08002745538c) {'id': 'ec6c5aa4-ebd3-11e6-864c-080027
+45538c', 'email': 'airbnb@holbertonshool.com', '__class__': 'User', 'last_name': 'Ho
+lberton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853163), 'first_n
+ame': 'Betty', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853222), 'pa
+ssword': 'root'}
 ```
 - <b>show</b>: Displays an instance based on given class name and id. Usage: show <class name> <id>
 ```
 (hbnb) show User ec6c5aa4-ebd3-11e6-864c-08002745538c
-[User] (ec6c5aa4-ebd3-11e6-864c-08002745538c) {'id': 'ec6c5aa4-ebd3-11e6-864c-08002745538c', 'email': 'airbnb@holbertonshool.com', '__class__': 'User', 'last_name':'Holberton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853163), 'first_name': 'Betty', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853222), 'password': 'root'}
+[User] (ec6c5aa4-ebd3-11e6-864c-08002745538c) {'id': 'ec6c5aa4-ebd3-11e6-864c-080027
+45538c', 'email': 'airbnb@holbertonshool.com', '__class__': 'User', 'last_name':'Hol
+berton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853163), 'first_na
+me': 'Betty', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853222), 'pas
+sword': 'root'}
 ```
 - <b>destroy</b>: Destroys an instance based on given class name and id. Usage: destroy <class name> <id>
 ```
@@ -33,8 +41,14 @@ ec6c5aa4-ebd3-11e6-864c-08002745538c
 (hbnb) create User
 edaab9ce-ebd3-11e6-a4af-08002745538c
 (hbnb) show User edaab9ce-ebd3-11e6-a4af-08002745538c
-[User] (edaab9ce-ebd3-11e6-a4af-08002745538c) {'id': 'edaab9ce-ebd3-11e6-a4af-08002745538c', 'email': 'airbnb@holbertonshool.com', 'last_name': 'Holberton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939549), 'first_name': 'Betty', 'password': 'root', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939585)}
+[User] (edaab9ce-ebd3-11e6-a4af-08002745538c) {'id': 'edaab9ce-ebd3-11e6-a4af-080027
+45538c', 'email': 'airbnb@holbertonshool.com', 'last_name': 'Holberton', 'created_at
+': datetime.datetime(2017, 1, 15, 18, 50, 13, 939549), 'first_name': 'Betty', 'passw
+ord': 'root', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939585)}
 (hbnb) update User edaab9ce-ebd3-11e6-a4af-08002745538c first_name Johnny
 (hbnb) show User edaab9ce-ebd3-11e6-a4af-08002745538c
-[User] (edaab9ce-ebd3-11e6-a4af-08002745538c) {'id': 'edaab9ce-ebd3-11e6-a4af-08002745538c', 'email': 'airbnb@holbertonshool.com', 'last_name': 'Holberton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939549), 'first_name': 'Johnny', 'password': 'root', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939585)}
+[User] (edaab9ce-ebd3-11e6-a4af-08002745538c) {'id': 'edaab9ce-ebd3-11e6-a4af-080027
+45538c', 'email': 'airbnb@holbertonshool.com', 'last_name': 'Holberton', 'created_at
+': datetime.datetime(2017, 1, 15, 18, 50, 13, 939549), 'first_name': 'Johnny', 'pass
+word': 'root', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939585)}
 ```
