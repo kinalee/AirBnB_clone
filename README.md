@@ -6,14 +6,29 @@ Holberton BnB, aka HBnB, is a clone of the AirBnB website. It gives the ability 
 Run the HBnB console.py file in your terminal:
 ```
 $ ./console.py
+Welcom to hbnb!
+
+(hbnb)
 ```
 The console has a series of available commands:
-- <b>create</b>: Creates a new instance of given class. Prints the id of the new instance. Usage: create <class name>
-```python3
+- <b>help</b>: Without an argument displays all commands that are availabe. With a command as argument; displays documentation on that command. Usage: help [command]
+```
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) help quit
+exit the console
+(hbnb)
+```
+- <b>create</b>: Creates a new instance of given class. Prints the id of the new instance. Usage: create ClassName
+```
 (hbnb) create User
 ec6c5aa4-ebd3-11e6-864c-08002745538c
 ```
-- <b>all</b>: Displays all instances that currently exist. Optional class name will display all instances of a given class. Usage: all [<class name>].
+- <b>all</b>: Displays all instances that currently exist. Optional class name will display all instances of a given class. Usage: all [ClassName].
 ```
 (hbnb) all User
 [User] (ec6c5aa4-ebd3-11e6-864c-08002745538c) {'id': 'ec6c5aa4-ebd3-11e6-864c-080027
@@ -22,7 +37,7 @@ lberton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853163), 'fir
 ame': 'Betty', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853222), 'pa
 ssword': 'root'}
 ```
-- <b>show</b>: Displays an instance based on given class name and id. Usage: show <class name> <id>
+- <b>show</b>: Displays an instance based on given class name and id. Usage: show ClassName ID
 ```
 (hbnb) show User ec6c5aa4-ebd3-11e6-864c-08002745538c
 [User] (ec6c5aa4-ebd3-11e6-864c-08002745538c) {'id': 'ec6c5aa4-ebd3-11e6-864c-080027
@@ -31,12 +46,12 @@ berton', 'created_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853163), 'firs
 me': 'Betty', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 11, 853222), 'pas
 sword': 'root'}
 ```
-- <b>destroy</b>: Destroys an instance based on given class name and id. Usage: destroy <class name> <id>
+- <b>destroy</b>: Destroys an instance based on given class name and id. Usage: destroy ClassName ID
 ```
 (hbnb) destroy User ec6c5aa4-ebd3-11e6-864c-08002745538c
 (hbnb) show User ec6c5aa4-ebd3-11e6-864c-08002745538c
 ```
-- <b>update</b>: Updates an instance based on class name and id by adding or updating the attribute given with the given value. Usage: update <class name> <id> <attribute name> <attribute value>
+- <b>update</b>: Updates an instance based on class name and id by adding or updating the attribute given with the given value. Usage: update ClassName ID AttributeName AttributeValue
 ```
 (hbnb) create User
 edaab9ce-ebd3-11e6-a4af-08002745538c
