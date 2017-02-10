@@ -52,3 +52,20 @@ ord': 'root', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939585)}
 ': datetime.datetime(2017, 1, 15, 18, 50, 13, 939549), 'first_name': 'Johnny', 'pass
 word': 'root', 'updated_at': datetime.datetime(2017, 1, 15, 18, 50, 13, 939585)}
 ```
+
+## Files & Directories
+- <b>console.py</b>: The main HBnB code, runs the console
+- <b>models/</b>: The models directory, holds all classes used in HBnB
+### Directory: models/
+This directory contains all classes used in the HBnB project.
+- <b>__init__.py</b>: Initiates the modles package
+- <b>amenity.py</b>: The Amenity class, inherits from BaseModel class
+- <b>base_model.py</b<>: The BaseModel class, the super class for all other classes in models/. Contains methods for loading and save as JSON representation, as well as unique ids to keep track of different instances of classes.
+- <b>city.py</b>: The City class, inherits from BaseModel class
+- <b>place.py</b>: The Place class, inherits from BaseModel class
+- <b>review.py</b>: The Review class, inherits from BaseModel class
+- <b>state.py</b>: The State class, inherits from BaseModel class
+- <b>user.py</b>: The User class, inheirts from BaseModel class
+- <b>engine</b>: The engine directory, holds the files for loading/saving objects as JSON representations
+### Directory: models/engine/
+- <b>file_storage.py</b>: The FileStorage class, used to load/save classes based on BaseModel. Files are loaded/saved from a .json file as JSON representations of the class.
