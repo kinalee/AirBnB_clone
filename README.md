@@ -1,4 +1,5 @@
 # Holberton BnB
+<img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/263/HBTN-hbnb-Final.png" alt="Holberton BnB">
 
 Holberton BnB, aka HBnB, is a clone of the AirBnB website. It gives the ability to create different locations, users, and reviews for the locations. Currently it only runs as a console. It can desplay all of the instances of all created objects, or display only the instances of a specific type of object (user, review, location, etc.). The user can also delete any of these created objects.
 
