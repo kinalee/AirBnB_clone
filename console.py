@@ -5,6 +5,13 @@ import sys
 import os.path
 from models.base_model import BaseModel
 from models.__init__ import storage
+from models.user import User
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.state import State
+
 
 class MyPrompt(cmd.Cmd):
     intro = 'Welcome to hbnb!\n'
@@ -17,8 +24,9 @@ class MyPrompt(cmd.Cmd):
         else:
             arg_list = list(args.split())
             if arg_list[0] in classes:
-                new_model = BaseModel()
+                new_model = classes[arg_list[0]]()
                 new_model.save()
+                storage.reload()
                 print(new_model.id)
             else:
                 print('** class doesn\'t exist **')
@@ -34,11 +42,15 @@ class MyPrompt(cmd.Cmd):
             print('** class doesn\'t exist **')
         elif storage.all():
             found = None
-            for key in storage.all().keys():
-                if key == arg_list[1]:
-                    print(storage.all()[key])
+            class_name = arg_list[0]
+            model_id = arg_list[1]
+            if model_id in storage.all():
+                if class_name == storage.all()[model_id].__dict__['__class__']:
+                    print(storage.all()[model_id])
                     found = 1
-            if not found:
+                if not found:
+                    print('** no instance found **')
+            else:
                 print('** no instance found **')
         else:
             print('** no instance found **')
@@ -74,6 +86,8 @@ class MyPrompt(cmd.Cmd):
                     del storage.all()[key]
                     storage.save()
                     found = 1
+                if found:
+                    break
             if not found:
                 print('** no instance found **')
         else:
@@ -99,6 +113,7 @@ class MyPrompt(cmd.Cmd):
                     my_model = storage.all()[key]
                     setattr(my_model, arg_list[2], arg_list[3])
                     my_model.save()
+                    storage.reload()
                     found = 1
             if not found:
                 print('** no instance found **')
@@ -118,5 +133,7 @@ class MyPrompt(cmd.Cmd):
         return False
 
 if __name__ == '__main__':
-    classes = ['BaseModel']
+    classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
+               'Review': Review, 'Amenity': Amenity, 'Place': Place,
+               'State': State}
     MyPrompt().cmdloop()

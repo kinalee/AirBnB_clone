@@ -5,8 +5,11 @@ from models.base_model import BaseModel
 
 class User(BaseModel):
 
-    def __init__(self):
-        BaseModel.__init__(self)
+    def __init__(self, *args, **kwargs):
+        if args and type(args[0]) is dict:
+            BaseModel.__init__(self, args[0])
+        else:
+            BaseModel.__init__(self)
         self.email = ""
         self.password = ""
         self.first_name = ""
