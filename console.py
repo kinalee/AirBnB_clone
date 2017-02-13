@@ -129,7 +129,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, args):
         """ exit on quit"""
-        print()
         raise SystemExit
 
     def emptyline(self):
