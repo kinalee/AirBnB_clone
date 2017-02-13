@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-
+"""
+Place Module
+"""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
+    """Place class """
 
     city_id = ""
     user_id = ""
@@ -17,6 +21,7 @@ class Place(BaseModel):
     amenities = []
 
     def __init__(self, *args, **kwargs):
+        """ initializes parent class """
         if args and type(args[0]) is dict:
             BaseModel.__init__(self, args[0])
         else:
