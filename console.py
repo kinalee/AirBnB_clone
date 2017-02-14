@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
-
-from cmd import Cmd
-import sys
-import json
-import uuid
-=======
+"""
+HBNB console
+"""
 import json
 import cmd
 import sys
@@ -18,19 +14,13 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from models.state import State
->>>>>>> 17051d047bbd18d2900b5fcc93f9bdf2f26d8ff8
 
 
-class MyPrompt(Cmd):
-    intro = 'Welcome to hbnb!\n'
+class HBNBCommand(cmd.Cmd):
+    """ Commmand line class for HBNB console """
+
     prompt = '(hbtn) '
 
-<<<<<<< HEAD
-    @classmethod
-    def do_create(cls, args):
-        """ documented  """
-        return json.dumps(cls)
-=======
     def do_create(self, args):
         """ Usage: create ClassName """
         if not args:
@@ -40,7 +30,6 @@ class MyPrompt(Cmd):
             if arg_list[0] in classes:
                 new_model = classes[arg_list[0]]()
                 new_model.save()
-                storage.reload()
                 print(new_model.id)
             else:
                 print('** class doesn\'t exist **')
@@ -134,32 +123,19 @@ class MyPrompt(Cmd):
         else:
             print('** no instance found **')
 
->>>>>>> 17051d047bbd18d2900b5fcc93f9bdf2f26d8ff8
-
     def do_EOF(self, args):
         """ exit on Ctrl-D and EOF """
         raise SystemExit
-
-    def do_emptyline(self, args):
-        """ documented """
-        return self.exit()
 
     def do_quit(self, args):
         """ exit on quit"""
         raise SystemExit
 
-<<<<<<< HEAD
-    def do_show(self, args):
-        """ documented """
-        """ print(str(self.)) """
-
-=======
     def emptyline(self):
         return False
->>>>>>> 17051d047bbd18d2900b5fcc93f9bdf2f26d8ff8
 
 if __name__ == '__main__':
     classes = {'BaseModel': BaseModel, 'User': User, 'City': City,
                'Review': Review, 'Amenity': Amenity, 'Place': Place,
                'State': State}
-    MyPrompt().cmdloop()
+    HBNBCommand().cmdloop()

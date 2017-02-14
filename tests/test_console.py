@@ -7,4 +7,4 @@ class TestConsole(TestCase):
         return True
 
 if __name__ == '__main__':
-    unittest.MyPrompt()
+    unittest.main()

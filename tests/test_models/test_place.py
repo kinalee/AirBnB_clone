@@ -1,16 +1,23 @@
 #!/usr/bin/python3
-
+"""
+unit test for Place class
+"""
 from unittest import TestCase
 from models.place import Place
 
+
 class PlaceTest(TestCase):
+    """ test case class for Place class """
     def setUp(self):
+        """ setting up basic object """
         self.place = Place()
 
     def tearDown(self):
+        """ safely deleting the object """
         del self.place
 
     def test_type(self):
+        """ checks the type of the attribute """
         self.assertIsInstance(self.place.city_id, str)
         self.assertIsInstance(self.place.user_id, str)
         self.assertIsInstance(self.place.name, str)
@@ -24,6 +31,7 @@ class PlaceTest(TestCase):
         self.assertIsInstance(self.place.amenities, list)
 
     def test_attr(self):
+        """ tests if the given attribute exists """
         self.assertTrue(self.place, 'city_id')
         self.assertTrue(self.place, 'user_id')
         self.assertTrue(self.place, 'name')
@@ -37,4 +45,4 @@ class PlaceTest(TestCase):
         self.assertTrue(self.place, 'amenities')
 
 if __name__ == '__main__':
-    unittest.Place()
+    unittest.main()
