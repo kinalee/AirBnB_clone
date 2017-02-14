@@ -44,8 +44,7 @@ class BaseModelTest(TestCase):
         """ testing to_json method """
         bm = BaseModel()
         jsoned_bm = bm.to_json()
-        self.assertEqaul(type(jsoned_bm), 'dict')
-        self.assertIsinstance('id', jsoned_bm)
+        self.assertTrue(type(jsoned_bm) is dict)
 
 
 if __name__ == '__main__':
