@@ -16,11 +16,11 @@ class BaseModel():
         for item in args:
             if type(item) is dict:
                 dict_found = 1
+                self.__dict__ = item
                 self.created_at = datetime.strptime(item['created_at'], time)
                 if hasattr(item, 'updated_at'):
                     self.updated_at = datetime.strptime
                     (item['updated_at'], time)
-                self.__dict__ = item
         if dict_found == 0:
             self.created_at = datetime.now()
             self.id = str(uuid.uuid4())
