@@ -7,6 +7,7 @@ from unittest import TestCase
 from unittest.mock import create_autospec
 from console import HBNBCommand
 
+
 class TestConsole(TestCase):
     """ test case class for console """
 
@@ -26,14 +27,15 @@ class TestConsole(TestCase):
     def test_quit(self):
         """ testing quit commmand """
         cli = self.create()
-        self.assertRaises(SystemExit, quit)
+        with self.assertRaises(SystemExit) as e:
+            cli.do_quit(self)
 
     def test_help(self):
         """ testing help command """
         cli = self.create()
         self.assertFalse(cli.onecmd("help"))
 
-    def test_emptyline(self):
+    def test_empty_line(self):
         """ testing emptyline command """
         cli = self.create()
         self.assertFalse(cli.onecmd("emptyline"))
@@ -41,7 +43,9 @@ class TestConsole(TestCase):
     def test_EOF(self):
         """ testing EOF command """
         cli = self.create()
-        self.assertRaises(SystemExit)
+        with self.assertRaises(SystemExit) as e:
+            cli.do_EOF(self)
+
 
 if __name__ == '__main__':
     unittest.main()
