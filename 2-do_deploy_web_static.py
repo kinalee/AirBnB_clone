@@ -16,15 +16,13 @@ def do_deploy(archive_path):
     path2 = "/data/web_static/releases"
 
     try:
-        put(archive_path, '/tmp/')
-        sudo('mkdir -p %s/%s/' % (path2, fn2))
-        sudo('tar -xzf /tmp/%s -C %s/%s' % (fn1, path2, fn2))
-        sudo('rm /tmp/%s' % fn1)
-        sudo('mv %s/%s/web_static/* ../' % (path2, fn2))
-        sudo('rm -rf %s/%s/web_static' % (path2, fn2))
-        sudo('rm -rf %s/' % path1)
-        sudo('ln -s %s/%s %s/' % (path2, fn2, path1))
+        put(archive_path, "/tmp/")
+        run("sudo mkdir -p %s/%s/" % (path2, fn2))
+        run("sudo tar -xzf /tmp/%s -C %s/%s" % (fn1, path2, fn2))
+        run("sudo rm /tmp/%s" % fn1)
+        run("sudo mv %s/%s/web_static/* %s/%s" % (path2, fn2, path2, fn2))
+        run("sudo rm -rf %s/" % path1)
+        run("sudo ln -s %s/%s/ %s/" % (path2, fn2, path1))
+        return True
     except:
         return False
-
-    return True
