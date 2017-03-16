@@ -7,6 +7,11 @@ from datetime import datetime
 
 
 def do_pack():
-    name = datetime.now().strftime("%Y%m%d%H%M%S")
+    date = datetime.now().strftime("%Y%m%d%H%M%S")
+    name = "versions/web_static_{:s}.tgz".format(date)
     local('mkdir -p versions')
-    local('tar -cvzf "versions/web_static_%s.tgz" ./web_static' % name)
+    try:
+        local('tar -cvzf %s ./web_static' % name)
+        return name
+    except:
+        return None
