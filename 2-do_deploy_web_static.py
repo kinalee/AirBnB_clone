@@ -25,7 +25,8 @@ def do_deploy(archive_path):
         run("sudo mkdir -p %s/%s/" % (path2, fn2))
         run("sudo tar -xzf /tmp/%s -C %s/%s" % (fn1, path2, fn2))
         run("sudo rm /tmp/%s" % fn1)
-        run("sudo mv %s/%s/web_static/* %s/%s" % (path2, fn2, path2, fn2))
+        run("sudo rm -fr %s" % (path1))
+        run("sudo mv -f %s/%s/web_static/* %s/%s" % (path2, fn2, path2, fn2))
         run("sudo rm -rf %s/" % path1)
         run("sudo ln -s %s/%s/ %s/" % (path2, fn2, path1))
         return True
