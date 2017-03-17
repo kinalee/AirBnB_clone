@@ -2,9 +2,15 @@
 import os
 from fabric.api import *
 from datetime import datetime
+"""
+Creates and distributes an archive to your web servers
+"""
 
 
 def do_pack():
+    """
+    Generates a .tgz archive
+    """
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     name = "versions/web_static_{:s}.tgz".format(date)
     local('mkdir -p versions')
@@ -42,6 +48,9 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    """
+    Creates and distributes an archive to your web servers
+    """
     path = do_pack()
     if not os.path.exists(path):
         return False
