@@ -2,6 +2,7 @@
 import os
 from fabric.api import *
 
+
 def do_pack():
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     name = "versions/web_static_{:s}.tgz".format(date)
@@ -11,6 +12,7 @@ def do_pack():
         return name
     except:
         return None
+
 
 def do_deploy(archive_path):
     """
